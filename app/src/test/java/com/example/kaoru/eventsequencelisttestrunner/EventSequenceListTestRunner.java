@@ -14,7 +14,6 @@ import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created by kaoru on 15/06/08.
@@ -49,16 +48,18 @@ public class EventSequenceListTestRunner extends Suite {
 
         private final Integer mIndex;
         private final DataProvider mDataProvider;
+        private final Class<?> mTestClass;
 
         public EventSequenceTestRunner(Class<?> testClass, int index, DataProvider dataProvider) throws InitializationError {
             super(testClass);
             mIndex = index;
             mDataProvider = dataProvider;
+            mTestClass = testClass;
         }
 
         @Override
         protected String testName(FrameworkMethod method) {
-            return method.getName() + getName();
+            return method.getName() + " #" + mIndex + " " + getName();
         }
 
         @Override
@@ -76,9 +77,8 @@ public class EventSequenceListTestRunner extends Suite {
                 return new HelperTestRunner(bootstrappedTestClass) {
                     @Override
                     protected Object createTest() throws Exception {
-                        Class clazz = getTestClass().getJavaClass();
-                        Constructor constructor = clazz.getConstructor(Integer.class, DataProvider.class);
-                        return constructor.newInstance(mIndex, mDataProvider);
+                        Constructor constructor = bootstrappedTestClass.getConstructor(Integer.class);
+                        return constructor.newInstance(mIndex);
                     }
 
                     @Override

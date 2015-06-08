@@ -5,10 +5,17 @@ package com.example.kaoru.eventsequencelisttestrunner;
  */
 public class ExampleDataSource implements DataProvider {
 
+    public interface TestCase {
+        void surfaceViewCreated();
+        void surfaceViewChanged();
+        void surfaceViewDestroyed();
+    }
+
     private static final int[][] DATA = {
             {0, 1, 2},
             {0, 2},
     };
+
     private static final String[] LABELS = {
             "surfaceViewCreated",
             "surfaceViewChanged",

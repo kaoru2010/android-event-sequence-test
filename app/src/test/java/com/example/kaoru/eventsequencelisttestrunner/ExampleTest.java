@@ -1,26 +1,29 @@
 package com.example.kaoru.eventsequencelisttestrunner;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.annotation.Config;
 
 @RunWith(EventSequenceListTestRunner.class)
+@Config(emulateSdk = 18)
 @EventSequenceListTestRunner.DataSource(ExampleDataSource.class)
-public class ExampleTest implements DataProviderAcceptor {
-    private final int mIndex;
-    private final DataProvider mDataProvider;
+public class ExampleTest extends EventSequenceListTestCase implements ExampleDataSource.TestCase {
 
-    public ExampleTest(Integer index, DataProvider dataProvider) {
-        mIndex = index;
-        mDataProvider = dataProvider;
+    public ExampleTest(Integer index) throws Throwable {
+        super(index);
     }
 
-    @Test
-    public void test1() {
+    @Override
+    public void surfaceViewCreated() {
 
     }
 
     @Override
-    public void acceptDataProvider(int index, DataProvider dataProvider) {
+    public void surfaceViewChanged() {
+
+    }
+
+    @Override
+    public void surfaceViewDestroyed() {
 
     }
 }
