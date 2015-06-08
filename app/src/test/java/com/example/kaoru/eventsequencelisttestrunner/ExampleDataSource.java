@@ -1,25 +1,23 @@
 package com.example.kaoru.eventsequencelisttestrunner;
 
-/**
- * Created by kaoru on 15/06/08.
- */
 public class ExampleDataSource implements DataProvider {
 
     public interface TestCase {
-        void surfaceViewCreated();
-        void surfaceViewChanged();
-        void surfaceViewDestroyed();
+        void surfaceCreated();
+        void surfaceChanged();
+        void surfaceDestroyed();
     }
 
     private static final int[][] DATA = {
+            {0, 1, 1, 2},
             {0, 1, 2},
             {0, 2},
     };
 
     private static final String[] LABELS = {
-            "surfaceViewCreated",
-            "surfaceViewChanged",
-            "surfaceViewDestroyed",
+            "surfaceCreated",
+            "surfaceChanged",
+            "surfaceDestroyed",
     };
 
     @Override

@@ -13,17 +13,17 @@ public class ExampleTest extends EventSequenceListTestCase implements ExampleDat
     }
 
     @Override
-    public void surfaceViewCreated() {
+    public void surfaceCreated() {
 
     }
 
     @Override
-    public void surfaceViewChanged() {
+    public void surfaceChanged() {
 
     }
 
     @Override
-    public void surfaceViewDestroyed() {
+    public void surfaceDestroyed() {
 
     }
 }
