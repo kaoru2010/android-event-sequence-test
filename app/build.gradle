@@ -25,4 +25,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:21.0.3'
     testCompile 'junit:junit:4.12'
     testCompile 'org.robolectric:robolectric:2.4'
+    testCompile 'com.googlecode.combinatoricslib:combinatoricslib:2.1'
 }
